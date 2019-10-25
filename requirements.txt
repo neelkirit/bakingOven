@@ -6,6 +6,7 @@ Flask==1.1.1
 
 # Flask Packages
 pymysql==0.9.3
+influxdb==5.2.3
 
 
 # Automated tests
