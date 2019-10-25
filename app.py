@@ -22,6 +22,12 @@ def measurement():
     return None
 
 
+@app.route('/login', methods=['POST'])
+def login():
+    print(request.json)
+    return utils.db_util.login(request.json)
+
+
 if __name__ == '__main__':
     app.run()
 

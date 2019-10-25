@@ -30,3 +30,19 @@ def register(user_details):
     except Exception as e:
         return (str(e))
     return "Yo"
+
+
+def login(credentials):
+    print(credentials)
+    cur = db.cursor()
+    try:
+        cur.execute(
+            "SELECT * FROM User WHERE email = %s and password = %s ", (credentials['email'], credentials['password']))
+        db.commit()
+        print(cur.fetchall())
+    except Exception as e:
+        return ("Wrong INfo")
+    if len(cur.fetchall()) > 0:
+        return "Loggedin"
+    else:
+        return "Failed Login"
