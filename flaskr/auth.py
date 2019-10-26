@@ -15,20 +15,21 @@ def register():
         email = request.form['email']
         password = request.form['password']
         db = get_db()
+        cur = db.cursor()
         error = None
 
         if not email:
-            error = 'Username is required.'
+            error = 'Email is required.'
         elif not password:
             error = 'Password is required.'
-        elif db.execute(
-                'SELECT id FROM user WHERE email = ?', (email,)
-        ).fetchone() is not None:
+        elif cur.execute(
+                'SELECT id FROM User WHERE email = %s', (email,)
+        ) != 0:
             error = 'User {} is already registered.'.format(email)
 
         if error is None:
-            db.execute(
-                'INSERT INTO user (email, password) VALUES (?, ?)',
+            cur.execute(
+                'INSERT INTO User (email, password) VALUES (%s, %s)',
                 (email, generate_password_hash(password))
             )
             db.commit()
