@@ -1,5 +1,5 @@
 from flask import (
-    Blueprint, flash, g, redirect, render_template, request, session, url_for
+    Blueprint, g, redirect, request, session, url_for
 )
 from werkzeug.security import check_password_hash, generate_password_hash
 
@@ -12,8 +12,8 @@ bp = Blueprint('auth', __name__, url_prefix='/auth')
 @bp.route('/register', methods=('GET', 'POST'))
 def register():
     if request.method == 'POST':
-        email = request.form['email']
-        password = request.form['password']
+        email = request.json['email']
+        password = request.json['password']
         db = get_db()
         cur = db.cursor()
         error = None
@@ -35,47 +35,48 @@ def register():
             db.commit()
             return redirect(url_for('auth.login'))
 
-        flash(error)
-
-    return render_template('auth/register.html')
+    return error
 
 
 @bp.route('/login', methods=('GET', 'POST'))
 def login():
     if request.method == 'POST':
-        email = request.form['email']
-        password = request.form['password']
+        email = request.json['email']
+        password = request.json['password']
         db = get_db()
+        cur = db.cursor()
         error = None
-        user = db.execute(
-            'SELECT * FROM user WHERE email = ?', (email,)
-        ).fetchone()
-
-        if user is None:
+        result = cur.execute(
+            'SELECT email,password FROM User WHERE email = %s', (email,)
+        )
+        db.commit()
+        user = cur.fetchall()[0]
+        if result == 0:
             error = 'Incorrect username.'
-        elif not check_password_hash(user['password'], password):
+        elif not check_password_hash(user[1], password):
             error = 'Incorrect password.'
 
         if error is None:
             session.clear()
-            session['user_id'] = user['id']
-            return redirect(url_for('index'))
+            session['email'] = user[0]
+            return session['email']
 
-        flash(error)
-
-    return render_template('auth/login.html')
+    return error
 
 
 @bp.before_app_request
 def load_logged_in_user():
-    user_id = session.get('user_id')
+    email = session.get('email')
 
-    if user_id is None:
+    if email is None:
         g.user = None
     else:
-        g.user = get_db().execute(
-            'SELECT * FROM user WHERE id = ?', (user_id,)
-        ).fetchone()
+        db = get_db()
+        cur = db.cursor()
+        g.user = cur.execute(
+            'SELECT * FROM User WHERE email = %s', (email,)
+        )
+        db.commit()
 
 
 @bp.route('/logout')
