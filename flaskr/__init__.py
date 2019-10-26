@@ -29,4 +29,8 @@ def create_app(test_config=None):
     def hello():
         return 'The server is live!'
 
+    # Import and register the blueprint from the factory
+    from . import auth
+    app.register_blueprint(auth.bp)
+
     return app
