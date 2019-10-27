@@ -1,6 +1,7 @@
 CHANGES
 =======
 
+* Dockerized this motherfiucker
 * Added setup.py and MANIFEST
 * Added after auth endpoints
 * Fixed Registration issue
