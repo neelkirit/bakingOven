@@ -8,6 +8,8 @@
 * A new topic is created for each product
 * InfluxDB acts as consumer to Kafka topic
 
+## API Documentation
+`https://documenter.getpostman.com/view/2470301/SVzxag9v`
 
 ## Setup Development Environment
 * Clone the repository
@@ -32,7 +34,7 @@
 ## Prepare for Production Deployment
 *When you want to deploy your application elsewhere, you build a distribution file. The current standard for Python distribution is the wheel format, with the `.whl` extension.
  Running `setup.py` with Python gives you a command line tool to issue build-related commands. The `bdist_wheel` command will build a wheel distribution file.*
-* Install Wheel
+* Install Wheel -
     *   `pip install wheel`
 * Build wheel distribution file -
     *   `python setup.py bdist_wheel`
@@ -55,5 +57,6 @@
 * Run server -
     *   `waitress-serve --call 'flaskr:create_app'`
 
+## Docker Deployment
 * Build Docker Image in local-
 * Run Docker Image -
