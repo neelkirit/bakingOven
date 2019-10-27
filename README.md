@@ -1,7 +1,7 @@
 ## Architecture of the application
 * MySQL for storing User Info _*[DONE]*_
     * Schema defined in `flaskr\schema.sql`
-* Angle Data stored in InfluxDB _*[TBD]*_
+* Angle Data stored in InfluxDB __*[TBD]*__
 * Kafka acts as real-time mq to store angle from Flask to InfluxDB _*[TBD]*_
 * Flask app listens from client by exposed APIs
 * Flask app acts as producer to Kafka topic
