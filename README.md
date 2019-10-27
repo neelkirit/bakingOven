@@ -8,3 +8,5 @@
     *  `export FLASK_ENV=development`
 * Run the app -
     *   `flask run`
+* After changes update the `requirements.txt` -
+    *   `pip freeze > requirements.txt`
