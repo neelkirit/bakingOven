@@ -14,6 +14,7 @@ def register():
     if request.method == 'POST':
         email = request.json['email']
         password = request.json['password']
+
         db = get_db()
         cur = db.cursor()
         error = None
@@ -29,8 +30,11 @@ def register():
 
         if error is None:
             cur.execute(
-                'INSERT INTO User (email, password) VALUES (%s, %s)',
-                (email, generate_password_hash(password))
+                'INSERT INTO User (name, product, age, profile_picture, gender, city, state, country, email, password) '
+                'VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s, %s)',
+                (request.json['name'], request.json['product'], request.json['age'], request.json['profile_picture'],
+                 request.json['gender'], request.json['city'], request.json['state'], request.json['country'], email,
+                 generate_password_hash(password))
             )
             db.commit()
             return redirect(url_for('auth.login'))
@@ -51,6 +55,7 @@ def login():
         )
         db.commit()
         user = cur.fetchall()[0]
+        print(user)
         if result == 0:
             error = 'Incorrect username.'
         elif not check_password_hash(user[1], password):
@@ -60,14 +65,13 @@ def login():
             session.clear()
             session['email'] = user[0]
             return session['email']
-
-    return error
+    return ''
 
 
 @bp.before_app_request
 def load_logged_in_user():
     email = session.get('email')
-
+    print("Here also")
     if email is None:
         g.user = None
     else:
