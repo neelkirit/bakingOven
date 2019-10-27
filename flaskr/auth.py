@@ -57,7 +57,6 @@ def login():
         )
         db.commit()
         user = cur.fetchall()[0]
-        print(user)
         if result == 0:
             error = 'Incorrect username.'
         elif not check_password_hash(user[1], password):
@@ -74,7 +73,6 @@ def login():
 @bp.before_app_request
 def load_logged_in_user():
     email = session.get('email')
-    print("Here also")
     if email is None:
         g.user = None
     else:
