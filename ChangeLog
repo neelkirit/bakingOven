@@ -1,0 +1,14 @@
+CHANGES
+=======
+
+* Added setup.py and MANIFEST
+* Added after auth endpoints
+* Fixed Registration issue
+* Changed architecture of the application
+* Changed data to JSON from form
+* Fixed Auth API
+* Added new design and schema with README
+* Added new design and schema with README
+* Added login
+* Added user registration
+* Made DB Connection
