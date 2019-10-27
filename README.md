@@ -41,8 +41,7 @@
 
 ## Production Environment
 #### Configure the Secret Key
-* `SECRET_KEY` should be changed to some random bytes in production. Otherwise, attackers could use the public 'dev' key to modify the session cookie, or anything else that uses the secret key.*
-
+*`SECRET_KEY` should be changed to some random bytes in production. Otherwise, attackers could use the public 'dev' key to modify the session cookie, or anything else that uses the secret key.*
 * Copy the binary to deployment location - 
     *   `cp ~/bakingOven/dist/flaskr-1.0.0-py3-none-any.whl .`
 * Generate Secret Key -
