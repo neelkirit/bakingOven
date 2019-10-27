@@ -1,8 +1,8 @@
 ## Architecture of the application
-* MySQL for storing User Info *[DONE]*
+* MySQL for storing User Info _*[DONE]*_
     * Schema defined in `flaskr\schema.sql`
-* Angle Data stored in InfluxDB *[TBD]*
-* Kafka acts as real-time mq to store angle from Flask to InfluxDB *[TBD]*
+* Angle Data stored in InfluxDB _*[TBD]*_
+* Kafka acts as real-time mq to store angle from Flask to InfluxDB _*[TBD]*_
 * Flask app listens from client by exposed APIs
 * Flask app acts as producer to Kafka topic
 * A new topic is created for each product
@@ -30,10 +30,11 @@
     *   `pip freeze > requirements.txt`
 
 ## Prepare for Production Deployment
-*When you want to deploy your application elsewhere, you build a distribution file. The current standard for Python distribution is the wheel format, with the .whl extension.
- Running setup.py with Python gives you a command line tool to issue build-related commands. The bdist_wheel command will build a wheel distribution file.*
+*When you want to deploy your application elsewhere, you build a distribution file. The current standard for Python distribution is the wheel format, with the `.whl` extension.
+ Running `setup.py` with Python gives you a command line tool to issue build-related commands. The `bdist_wheel` command will build a wheel distribution file.*
 * Install Wheel
     *   `pip install wheel`
+
 
 ## Production Environment
 * Build Docker Image -
