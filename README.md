@@ -37,7 +37,7 @@
 * Install Wheel -
     *   `pip install wheel`
 * Build wheel distribution file -
-    *   `python setup.py bdist_wheel`
+    *   `python3 setup.py bdist_wheel`
 * Locate the deployment binary at - 
     *   `dist/flaskr-1.0.0-py3-none-any.whl`
 
