@@ -1,4 +1,4 @@
-#### Travis CI Build Status
+
 [![Build Status](https://travis-ci.com/neelkirit/bakingOven.svg?branch=master)](https://travis-ci.com/neelkirit/bakingOven)
 
 ## Architecture of the application
@@ -11,8 +11,7 @@
 * A new topic is created for each product
 * InfluxDB acts as consumer to Kafka topic
 
-## API Documentation
-`https://documenter.getpostman.com/view/2470301/SVzxag9v`
+[## API Documentation](https://documenter.getpostman.com/view/2470301/SVzxag9v)
 
 ## Setup Development Environment
 * Clone the repository
