@@ -1,3 +1,6 @@
+#### Travis CI Build Status
+[![Build Status](https://travis-ci.com/neelkirit/bakingOven.svg?branch=master)](https://travis-ci.com/neelkirit/bakingOven)
+
 ## Architecture of the application
 * MySQL for storing User Info __*[DONE]*__
     * Schema defined in `flaskr\schema.sql`
