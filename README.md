@@ -58,5 +58,7 @@
     *   `waitress-serve --call 'flaskr:create_app'`
 
 ## Docker Deployment
-* Build Docker Image in local-
+* Run Build Image -
+    *   `docker image build -t flaskr:1.0 .`
 * Run Docker Image -
+    *   `docker container run --publish 8080:8080 --detach --name <IMAGE_ID> flaskr:1.0`
