@@ -17,7 +17,7 @@ RUN ls /app
 RUN pip install /app/flaskr-1.0.0-py3-none-any.whl
 RUN export FLASK_APP=flaskr
 
-EXPOSE  5000
+EXPOSE  8080
 CMD ["waitress-serve", "--call", "flaskr:create_app"]
 
 

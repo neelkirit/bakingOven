@@ -61,6 +61,6 @@
 
 ## Docker Deployment
 * Run Build Image -
-    *   `docker image build -t flaskr:1.0 .`
+    *   `image=$(docker image build -t flaskr:1.0 .)`
 * Run Docker Image -
-    *   `docker container run --publish 8080:8080 --detach --name <IMAGE_ID> flaskr:1.0`
+    *   `docker container run --publish 8080:8080 --detach --name "$(image)" flaskr:1.0`

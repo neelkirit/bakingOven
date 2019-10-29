@@ -5,7 +5,7 @@ from flask import g
 
 def get_db():
     if 'db' not in g:
-        g.db = pymysql.connect(db='bakingOven', user='root', passwd='root', host='localhost', port=8889)
+        g.db = pymysql.connect(db='bakingOven', user='root', passwd='root', host='localhost', port=3306)
     return g.db
 
 
