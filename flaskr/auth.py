@@ -56,17 +56,21 @@ def login():
             'SELECT email,password FROM User WHERE email = %s', (email,)
         )
         db.commit()
-        user = cur.fetchall()[0]
-        if result == 0:
-            error = 'Incorrect username.'
-        elif not check_password_hash(user[1], password):
-            error = 'Incorrect password.'
+        user = cur.fetchall()
+        if len(user) > 0:
+            user = user[0]
+            if result == 0:
+                error = 'Incorrect username.'
+            elif not check_password_hash(user[1], password):
+                error = 'Incorrect password.'
+        else:
+            error = 'User not found'
 
         if error is None:
             session.clear()
             session['email'] = user[0]
             return session['email']
-    return ''
+    return 'error'
 
 
 # This is called before any URL is requested
