@@ -1,7 +1,7 @@
 --DROP TABLE IF EXISTS User;
 
 CREATE TABLE User (
-  id int PRIMARY KEY AUTOINCREMENT,
+  id int PRIMARY KEY AUTO_INCREMENT,
   name varchar(255) NOT NULL,
   age int NOT NULL,
   profile_picture varchar(255) NOT NULL,
