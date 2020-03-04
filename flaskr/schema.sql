@@ -1,6 +1,6 @@
 --DROP TABLE IF EXISTS User;
 
-CREATE TABLE User (
+CREATE TABLE bakingOven.User (
   id int PRIMARY KEY AUTO_INCREMENT,
   name varchar(255) NOT NULL,
   age int NOT NULL,

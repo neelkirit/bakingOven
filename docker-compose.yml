@@ -1,6 +1,13 @@
-version: '3'
+version: '3.7'
+
 services:
-  web:
-    build: Dockerfile
+  peer1:
+    build:
+      context: .
+      dockerfile: Dockerfile
     ports:
-      - "5000:5000"
+      - "8080:8080"
+    expose:
+      - 8080
+    image: bakingoven:latest
+    container_name: bakingoven
