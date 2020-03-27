@@ -39,7 +39,7 @@ def register():
                  generate_password_hash(password))
             )
             db.commit()
-            return redirect(url_for('auth.login'))
+            return "success"
 
     return error
 
