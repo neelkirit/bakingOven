@@ -7,6 +7,12 @@ verify_ssl = true
 pbr = "*"
 
 [packages]
+pytest = "*"
+flask = "*"
+pymysql = "*"
+requests = "*"
+mysql = "*"
+boto3 = "*"
 
 [requires]
 python_version = "3.7"
