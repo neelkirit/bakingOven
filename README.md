@@ -39,7 +39,9 @@
     *   `flask run`
 * After changes update the `requirements.txt` -
     *   `pip freeze > requirements.txt`
-
+    *    If the requirements are not downloaded fully then install `sudo get-apt install python3-pymysql`
+    *    Then, `pip install pymysql` or `pip install requests` or any other uninstalled libraries
+    
 ## Prepare for Production Deployment
 *When you want to deploy your application elsewhere, you build a distribution file. The current standard for Python distribution is the wheel format, with the `.whl` extension.
  Running `setup.py` with Python gives you a command line tool to issue build-related commands. The `bdist_wheel` command will build a wheel distribution file.*
