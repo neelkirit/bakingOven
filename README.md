@@ -18,6 +18,11 @@
     *   `git clone https://github.com/neelkirit/bakingOven.git`
 * Navigate to project directory
     *   `cd bakingOven`
+* Install pip3
+    *   `sudo apt-get update`
+    *   `apt install python3-pip`
+* Install virtualenv
+    *   `pip3 install virtualenv`
 * Setup virtual environment
     *   `python3 -m virtualenv venv`
     *   `source venv/bin/activate`
