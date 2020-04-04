@@ -21,6 +21,8 @@
 * Install pip3
     *   `sudo apt-get update`
     *   `apt install python3-pip`
+* Make `pip3` as Default `pip` 
+    *   `alias pip=pip3`
 * Install virtualenv
     *   `pip3 install virtualenv`
 * Setup virtual environment
