@@ -64,7 +64,8 @@
 * Install Waitress -
     *   `pip install waitress`
 * Run server -
-    *   `waitress-serve --call 'flaskr:create_app'`
+    *   `nohup waitress-serve --call 'flaskr:create_app &`
+  
 
 ## Docker Deployment
 * Run Build Image -
