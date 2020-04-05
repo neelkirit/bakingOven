@@ -21,6 +21,8 @@
 * Install pip3
     *   `sudo apt-get update`
     *   `apt install python3-pip`
+* Make `pip3` as Default `pip` 
+    *   `alias pip=pip3`
 * Install virtualenv
     *   `pip3 install virtualenv`
 * Setup virtual environment
@@ -37,7 +39,9 @@
     *   `flask run`
 * After changes update the `requirements.txt` -
     *   `pip freeze > requirements.txt`
-
+    *    If the requirements are not downloaded fully then install `sudo get-apt install python3-pymysql`
+    *    Then, `pip install pymysql` or `pip install requests` or any other uninstalled libraries
+    
 ## Prepare for Production Deployment
 *When you want to deploy your application elsewhere, you build a distribution file. The current standard for Python distribution is the wheel format, with the `.whl` extension.
  Running `setup.py` with Python gives you a command line tool to issue build-related commands. The `bdist_wheel` command will build a wheel distribution file.*
@@ -62,7 +66,8 @@
 * Install Waitress -
     *   `pip install waitress`
 * Run server -
-    *   `waitress-serve --call 'flaskr:create_app'`
+    *   `nohup waitress-serve --call 'flaskr:create_app' &`
+  
 
 ## Docker Deployment
 * Run Build Image -
